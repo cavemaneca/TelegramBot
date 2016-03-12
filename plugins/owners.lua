@@ -82,9 +82,9 @@ end
 
 local function show_group_settingsmod(msg, data, target)
     local data = load_data(_config.moderation.data)
-    if data[tostring(msg.to.id)] then
-      if data[tostring(msg.to.id)]['settings']['flood_msg_max'] then
-        NUM_MSG_MAX = tonumber(data[tostring(msg.to.id)]['settings']['flood_msg_max'])
+    if data[tostring(msg.to.peer_id)] then
+      if data[tostring(msg.to.peer_id)]['settings']['flood_msg_max'] then
+        NUM_MSG_MAX = tonumber(data[tostring(msg.to.peer_id)]['settings']['flood_msg_max'])
         print('custom'..NUM_MSG_MAX)
       else 
         NUM_MSG_MAX = 5
@@ -112,59 +112,59 @@ local function set_description(target, about)
 end
 
 local function run(msg, matches)
-  if msg.to.type ~= 'chat' then
+  if msg.to.peer_type ~= 'chat' or msg.to.peer_type ~= 'channel' then
     local chat_id = matches[1]
     local receiver = get_receiver(msg)
     local data = load_data(_config.moderation.data)
     if matches[2] == 'ban' then
       local chat_id = matches[1]
-      if not is_owner2(msg.from.id, chat_id) then
+      if not is_owner2(msg.from.peer_id, chat_id) then
         return "You are not the owner of this group"
       end
       if tonumber(matches[3]) == tonumber(our_id) then return false end
       local user_id = matches[3]
-      if tonumber(matches[3]) == tonumber(msg.from.id) then 
+      if tonumber(matches[3]) == tonumber(msg.from.peer_id) then 
         return "You can't ban yourself"
       end
       ban_user(matches[3], matches[1])
       local name = user_print_name(msg.from)
-      savelog(matches[1], name.." ["..msg.from.id.."] banned user ".. matches[3])
+      savelog(matches[1], name.." ["..msg.from.peer_id.."] banned user ".. matches[3])
       return 'User '..user_id..' banned'
     end
     if matches[2] == 'unban' then
     if tonumber(matches[3]) == tonumber(our_id) then return false end
       local chat_id = matches[1]
-      if not is_owner2(msg.from.id, chat_id) then
+      if not is_owner2(msg.from.peer_id, chat_id) then
         return "You are not the owner of this group"
       end
       local user_id = matches[3]
-      if tonumber(matches[3]) == tonumber(msg.from.id) then 
+      if tonumber(matches[3]) == tonumber(msg.from.peer_id) then 
         return "You can't unban yourself"
       end
       local hash =  'banned:'..matches[1]
       redis:srem(hash, user_id)
       local name = user_print_name(msg.from)
-      savelog(matches[1], name.." ["..msg.from.id.."] unbanned user ".. matches[3])
+      savelog(matches[1], name.." ["..msg.from.peer_id.."] unbanned user ".. matches[3])
       return 'User '..user_id..' unbanned'
     end
     if matches[2] == 'kick' then
       local chat_id = matches[1]
-      if not is_owner2(msg.from.id, chat_id) then
+      if not is_owner2(msg.from.peer_id, chat_id) then
         return "You are not the owner of this group"
       end
       if tonumber(matches[3]) == tonumber(our_id) then return false end
       local user_id = matches[3]
-      if tonumber(matches[3]) == tonumber(msg.from.id) then 
+      if tonumber(matches[3]) == tonumber(msg.from.peer_id) then 
         return "You can't kick yourself"
       end
       kick_user(matches[3], matches[1])
       local name = user_print_name(msg.from)
-      savelog(matches[1], name.." ["..msg.from.id.."] kicked user ".. matches[3])
+      savelog(matches[1], name.." ["..msg.from.peer_id.."] kicked user ".. matches[3])
       return 'User '..user_id..' kicked'
     end
     if matches[2] == 'clean' then
       if matches[3] == 'modlist' then
-        if not is_owner2(msg.from.id, chat_id) then
+        if not is_owner2(msg.from.peer_id, chat_id) then
           return "You are not the owner of this group"
         end
         for k,v in pairs(data[tostring(matches[1])]['moderators']) do
@@ -172,31 +172,31 @@ local function run(msg, matches)
           save_data(_config.moderation.data, data)
         end
         local name = user_print_name(msg.from)
-        savelog(matches[1], name.." ["..msg.from.id.."] cleaned modlist")
+        savelog(matches[1], name.." ["..msg.from.peer_id.."] cleaned modlist")
       end
       if matches[3] == 'rules' then
-        if not is_owner2(msg.from.id, chat_id) then
+        if not is_owner2(msg.from.peer_id, chat_id) then
           return "You are not the owner of this group"
         end
         local data_cat = 'rules'
         data[tostring(matches[1])][data_cat] = nil
         save_data(_config.moderation.data, data)
         local name = user_print_name(msg.from)
-        savelog(matches[1], name.." ["..msg.from.id.."] cleaned rules")
+        savelog(matches[1], name.." ["..msg.from.peer_id.."] cleaned rules")
       end
       if matches[3] == 'about' then
-        if not is_owner2(msg.from.id, chat_id) then
+        if not is_owner2(msg.from.peer_id, chat_id) then
           return "You are not the owner of this group"
         end
         local data_cat = 'description'
         data[tostring(matches[1])][data_cat] = nil
         save_data(_config.moderation.data, data)
         local name = user_print_name(msg.from)
-        savelog(matches[1], name.." ["..msg.from.id.."] cleaned about")
+        savelog(matches[1], name.." ["..msg.from.peer_id.."] cleaned about")
       end
     end
     if matches[2] == "setflood" then
-      if not is_owner2(msg.from.id, chat_id) then
+      if not is_owner2(msg.from.peer_id, chat_id) then
         return "You are not the owner of this group"
       end
       if tonumber(matches[3]) < 5 or tonumber(matches[3]) > 20 then
@@ -206,44 +206,44 @@ local function run(msg, matches)
       data[tostring(matches[1])]['settings']['flood_msg_max'] = flood_max
       save_data(_config.moderation.data, data)
       local name = user_print_name(msg.from)
-      savelog(matches[1], name.." ["..msg.from.id.."] set flood to ["..matches[3].."]")
+      savelog(matches[1], name.." ["..msg.from.peer_id.."] set flood to ["..matches[3].."]")
       return 'Group flood has been set to '..matches[3]
     end
     if matches[2] == 'lock' then
-      if not is_owner2(msg.from.id, chat_id) then
+      if not is_owner2(msg.from.peer_id, chat_id) then
         return "You are not the owner of this group"
       end
       local target = matches[1]
       if matches[3] == 'name' then
         local name = user_print_name(msg.from)
-        savelog(matches[1], name.." ["..msg.from.id.."] locked name ")
+        savelog(matches[1], name.." ["..msg.from.peer_id.."] locked name ")
         return lock_group_namemod(msg, data, target)
       end
       if matches[3] == 'member' then
         local name = user_print_name(msg.from)
-        savelog(matches[1], name.." ["..msg.from.id.."] locked member ")
+        savelog(matches[1], name.." ["..msg.from.peer_id.."] locked member ")
         return lock_group_membermod(msg, data, target)
       end
     end
     if matches[2] == 'unlock' then
-      if not is_owner2(msg.from.id, chat_id) then
+      if not is_owner2(msg.from.peer_id, chat_id) then
         return "You are not the owner of this group"
       end
       local target = matches[1]
       if matches[3] == 'name' then
         local name = user_print_name(msg.from)
-        savelog(matches[1], name.." ["..msg.from.id.."] unlocked name ")
+        savelog(matches[1], name.." ["..msg.from.peer_id.."] unlocked name ")
         return unlock_group_namemod(msg, data, target)
       end
       if matches[3] == 'member' then
         local name = user_print_name(msg.from)
-        savelog(matches[1], name.." ["..msg.from.id.."] unlocked member ")
+        savelog(matches[1], name.." ["..msg.from.peer_id.."] unlocked member ")
         return unlock_group_membermod(msg, data, target)
       end
     end
     if matches[2] == 'new' then
       if matches[3] == 'link' then
-        if not is_owner2(msg.from.id, chat_id) then
+        if not is_owner2(msg.from.peer_id, chat_id) then
           return "You are not the owner of this group"
         end
         local function callback (extra , success, result)
@@ -255,14 +255,14 @@ local function run(msg, matches)
         end
         local receiver = 'chat#'..matches[1]
         local name = user_print_name(msg.from)
-        savelog(matches[1], name.." ["..msg.from.id.."] revoked group link ")
+        savelog(matches[1], name.." ["..msg.from.peer_id.."] revoked group link ")
         export_chat_link(receiver, callback, true)
         return "Created a new new link ! \n owner can get it by /owners "..matches[1].." get link"
       end
     end
     if matches[2] == 'get' then 
       if matches[3] == 'link' then
-        if not is_owner2(msg.from.id, chat_id) then
+        if not is_owner2(msg.from.peer_id, chat_id) then
           return "You are not the owner of this group"
         end
         local group_link = data[tostring(matches[1])]['settings']['set_link']
@@ -270,37 +270,37 @@ local function run(msg, matches)
           return "Create a link using /newlink first !"
         end
         local name = user_print_name(msg.from)
-        savelog(matches[1], name.." ["..msg.from.id.."] requested group link ["..group_link.."]")
+        savelog(matches[1], name.." ["..msg.from.peer_id.."] requested group link ["..group_link.."]")
         return "Group link:\n"..group_link
       end
     end
-    if matches[1] == 'changeabout' and matches[2] and is_owner2(msg.from.id, matches[2]) then
+    if matches[1] == 'changeabout' and matches[2] and is_owner2(msg.from.peer_id, matches[2]) then
       local target = matches[2]
       local about = matches[3]
       local name = user_print_name(msg.from)
-      savelog(matches[2], name.." ["..msg.from.id.."] has changed group description to ["..matches[3].."]")
+      savelog(matches[2], name.." ["..msg.from.peer_id.."] has changed group description to ["..matches[3].."]")
       return set_description(target, about)
     end
-    if matches[1] == 'changerules' and is_owner2(msg.from.id, matches[2]) then
+    if matches[1] == 'changerules' and is_owner2(msg.from.peer_id, matches[2]) then
       local rules = matches[3]
       local target = matches[2]
       local name = user_print_name(msg.from)
-      savelog(matches[2], name.." ["..msg.from.id.."] has changed group rules to ["..matches[3].."]")
+      savelog(matches[2], name.." ["..msg.from.peer_id.."] has changed group rules to ["..matches[3].."]")
       return set_rules(target, rules)
     end
-    if matches[1] == 'changename' and is_owner2(msg.from.id, matches[2]) then
+    if matches[1] == 'changename' and is_owner2(msg.from.peer_id, matches[2]) then
       local new_name = string.gsub(matches[3], '_', ' ')
       data[tostring(matches[2])]['settings']['set_name'] = new_name
       save_data(_config.moderation.data, data)
       local group_name_set = data[tostring(matches[2])]['settings']['set_name']
       local to_rename = 'chat#id'..matches[2]
       local name = user_print_name(msg.from)
-      savelog(matches[2], "Group {}  name changed to [ "..new_name.." ] by "..name.." ["..msg.from.id.."]")
+      savelog(matches[2], "Group {}  name changed to [ "..new_name.." ] by "..name.." ["..msg.from.peer_id.."]")
       rename_chat(to_rename, group_name_set, ok_cb, false)
     end
-    if matches[1] == 'loggroup' and matches[2] and is_owner2(msg.from.id, matches[2]) then
+    if matches[1] == 'loggroup' and matches[2] and is_owner2(msg.from.peer_id, matches[2]) then
       savelog(matches[2], "------")
-      send_document("user#id".. msg.from.id,"./groups/logs/"..matches[2].."log.txt", ok_cb, false)
+      send_document("user#id".. msg.from.peer_id,"./groups/logs/"..matches[2].."log.txt", ok_cb, false)
     end
   end
 end

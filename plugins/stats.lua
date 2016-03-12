@@ -94,16 +94,16 @@ local function run(msg, matches)
   if matches[1]:lower() == 'teleseed' then -- Put everything you like :)
     local about = _config.about_text
     local name = user_print_name(msg.from)
-    savelog(msg.to.id, name.." ["..msg.from.id.."] used /teleseed ")
+    savelog(msg.to.peer_id, name.." ["..msg.from.peer_id.."] used /teleseed ")
     return about
   end 
   if matches[1]:lower() == "statslist" then
     if not is_momod(msg) then
       return "For mods only !"
     end
-    local chat_id = msg.to.id
+    local chat_id = msg.to.peer_id
     local name = user_print_name(msg.from)
-    savelog(msg.to.id, name.." ["..msg.from.id.."] requested group stats ")
+    savelog(msg.to.peer_id, name.." ["..msg.from.peer_id.."] requested group stats ")
     return chat_stats2(chat_id)
   end
   if matches[1]:lower() == "stats" then
@@ -111,10 +111,10 @@ local function run(msg, matches)
       if not is_momod(msg) then
         return "For mods only !"
       end
-      if msg.to.type == 'chat' then
-        local chat_id = msg.to.id
+      if msg.to.peer_type == 'chat' then
+        local chat_id = msg.to.peer_id
         local name = user_print_name(msg.from)
-        savelog(msg.to.id, name.." ["..msg.from.id.."] requested group stats ")
+        savelog(msg.to.peer_id, name.." ["..msg.from.peer_id.."] requested group stats ")
         return chat_stats(chat_id)
       else
         return

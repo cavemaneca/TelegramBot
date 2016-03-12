@@ -11,15 +11,15 @@ local function run(msg, matches)
     return
   end
   if msg.media then
-    if msg.media.type == 'photo' then
-      load_photo(msg.id, callback, msg.id)
+    if msg.media.peer_type == 'photo' then
+      load_photo(msg.peer_id, callback, msg.peer_id)
     end
   end
 end
 
 local function pre_process(msg)
   if not msg.text and msg.media then
-    msg.text = '['..msg.media.type..']'
+    msg.text = '['..msg.media.peer_type..']'
   end
   return msg
 end

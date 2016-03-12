@@ -1,57 +1,57 @@
 
 local function pre_process(msg)
   -- SERVICE MESSAGE
-  if msg.action and msg.action.type then
-    local action = msg.action.type
+  if msg.action and msg.action.peer_type then
+    local action = msg.action.peer_type
     -- Check if banned user joins chat by link
     if action == 'chat_add_user_link' then
-      local user_id = msg.from.id
+      local user_id = msg.from.peer_id
       print('Checking invited user '..user_id)
-      local banned = is_banned(user_id, msg.to.id)
+      local banned = is_banned(user_id, msg.to.peer_id)
       if banned or is_gbanned(user_id) then -- Check it with redis
       print('User is banned!')
       local name = user_print_name(msg.from)
-      savelog(msg.to.id, name.." ["..msg.from.id.."] is banned and kicked ! ")-- Save to logs
-      kick_user(user_id, msg.to.id)
+      savelog(msg.to.peer_id, name.." ["..msg.from.peer_id.."] is banned and kicked ! ")-- Save to logs
+      kick_user(user_id, msg.to.peer_id)
       end
     end
     -- Check if banned user joins chat
     if action == 'chat_add_user' then
-      local user_id = msg.action.user.id
+      local user_id = msg.action.user.peer_id
       print('Checking invited user '..user_id)
-      local banned = is_banned(user_id, msg.to.id)
+      local banned = is_banned(user_id, msg.to.peer_id)
       if banned or is_gbanned(user_id) then -- Check it with redis
         print('User is banned!')
         local name = user_print_name(msg.from)
-        savelog(msg.to.id, name.." ["..msg.from.id.."] added a banned user >"..msg.action.user.id)-- Save to logs
-        kick_user(user_id, msg.to.id)
-        local banhash = 'addedbanuser:'..msg.to.id..':'..msg.from.id
+        savelog(msg.to.peer_id, name.." ["..msg.from.peer_id.."] added a banned user >"..msg.action.user.peer_id)-- Save to logs
+        kick_user(user_id, msg.to.peer_id)
+        local banhash = 'addedbanuser:'..msg.to.peer_id..':'..msg.from.peer_id
         redis:incr(banhash)
-        local banhash = 'addedbanuser:'..msg.to.id..':'..msg.from.id
+        local banhash = 'addedbanuser:'..msg.to.peer_id..':'..msg.from.peer_id
         local banaddredis = redis:get(banhash) 
         if banaddredis then 
           if tonumber(banaddredis) == 4 and not is_owner(msg) then 
-            kick_user(msg.from.id, msg.to.id)-- Kick user who adds ban ppl more than 3 times
+            kick_user(msg.from.peer_id, msg.to.peer_id)-- Kick user who adds ban ppl more than 3 times
           end
           if tonumber(banaddredis) ==  8 and not is_owner(msg) then 
-            ban_user(msg.from.id, msg.to.id)-- Kick user who adds ban ppl more than 7 times
-            local banhash = 'addedbanuser:'..msg.to.id..':'..msg.from.id
+            ban_user(msg.from.peer_id, msg.to.peer_id)-- Kick user who adds ban ppl more than 7 times
+            local banhash = 'addedbanuser:'..msg.to.peer_id..':'..msg.from.peer_id
             redis:set(banhash, 0)-- Reset the Counter
           end
         end
       end
-     if data[tostring(msg.to.id)] then
-       if data[tostring(msg.to.id)]['settings'] then
-         if data[tostring(msg.to.id)]['settings']['lock_bots'] then 
-           bots_protection = data[tostring(msg.to.id)]['settings']['lock_bots']
+     if data[tostring(msg.to.peer_id)] then
+       if data[tostring(msg.to.peer_id)]['settings'] then
+         if data[tostring(msg.to.peer_id)]['settings']['lock_bots'] then 
+           bots_protection = data[tostring(msg.to.peer_id)]['settings']['lock_bots']
           end
         end
       end
     if msg.action.user.username ~= nil then
       if string.sub(msg.action.user.username:lower(), -3) == 'bot' and not is_momod(msg) and bots_protection == "yes" then --- Will kick bots added by normal users
         local name = user_print_name(msg.from)
-          savelog(msg.to.id, name.." ["..msg.from.id.."] added a bot > @".. msg.action.user.username)-- Save to logs
-          kick_user(msg.action.user.id, msg.to.id)
+          savelog(msg.to.peer_id, name.." ["..msg.from.peer_id.."] added a bot > @".. msg.action.user.username)-- Save to logs
+          kick_user(msg.action.user.peer_id, msg.to.peer_id)
       end
     end
   end
@@ -59,21 +59,21 @@ local function pre_process(msg)
   return msg
   end
   -- banned user is talking !
-  if msg.to.type == 'chat' then
+  if msg.to.peer_type == 'chat' then
     local data = load_data(_config.moderation.data)
-    local group = msg.to.id
+    local group = msg.to.peer_id
     local texttext = 'groups'
-    --if not data[tostring(texttext)][tostring(msg.to.id)] and not is_realm(msg) then -- Check if this group is one of my groups or not
-    --chat_del_user('chat#id'..msg.to.id,'user#id'..our_id,ok_cb,false)
+    --if not data[tostring(texttext)][tostring(msg.to.peer_id)] and not is_realm(msg) then -- Check if this group is one of my groups or not
+    --chat_del_user('chat#id'..msg.to.peer_id,'user#id'..our_id,ok_cb,false)
     --return 
     --end
-    local user_id = msg.from.id
-    local chat_id = msg.to.id
+    local user_id = msg.from.peer_id
+    local chat_id = msg.to.peer_id
     local banned = is_banned(user_id, chat_id)
     if banned or is_gbanned(user_id) then -- Check it with redis
       print('Banned user talking!')
       local name = user_print_name(msg.from)
-      savelog(msg.to.id, name.." ["..msg.from.id.."] banned user is talking !")-- Save to logs
+      savelog(msg.to.peer_id, name.." ["..msg.from.peer_id.."] banned user is talking !")-- Save to logs
       kick_user(user_id, chat_id)
       msg.text = ''
     end
@@ -84,7 +84,7 @@ end
 local function kick_ban_res(extra, success, result)
 --vardump(result)
 --vardump(extra)
-      local member_id = result.id
+      local member_id = result.peer_id
       local user_id = member_id
       local member = result.username
       local chat_id = extra.chat_id
@@ -121,25 +121,25 @@ end
 
 local function run(msg, matches)
  if matches[1]:lower() == 'id' then
-    if msg.to.type == "user" then
-      return "Bot ID: "..msg.to.id.. "\n\nYour ID: "..msg.from.id
+    if msg.to.peer_type == "user" then
+      return "Bot ID: "..msg.to.peer_id.. "\n\nYour ID: "..msg.from.peer_id
     end
     if type(msg.reply_id) ~= "nil" then
       local name = user_print_name(msg.from)
-        savelog(msg.to.id, name.." ["..msg.from.id.."] used /id ")
+        savelog(msg.to.peer_id, name.." ["..msg.from.peer_id.."] used /id ")
         id = get_message(msg.reply_id,get_message_callback_id, false)
     elseif matches[1]:lower() == 'id' then
       local name = user_print_name(msg.from)
-      savelog(msg.to.id, name.." ["..msg.from.id.."] used /id ")
-      return "Group ID for " ..string.gsub(msg.to.print_name, "_", " ").. ":\n\n"..msg.to.id  
+      savelog(msg.to.peer_id, name.." ["..msg.from.peer_id.."] used /id ")
+      return "Group ID for " ..string.gsub(msg.to.print_name, "_", " ").. ":\n\n"..msg.to.peer_id  
     end
   end
   if matches[1]:lower() == 'kickme' then-- /kickme
   local receiver = get_receiver(msg)
-    if msg.to.type == 'chat' then
+    if msg.to.peer_type == 'chat' then
       local name = user_print_name(msg.from)
-      savelog(msg.to.id, name.." ["..msg.from.id.."] left using kickme ")-- Save to logs
-      chat_del_user("chat#id"..msg.to.id, "user#id"..msg.from.id, ok_cb, false)
+      savelog(msg.to.peer_id, name.." ["..msg.from.peer_id.."] left using kickme ")-- Save to logs
+      chat_del_user("chat#id"..msg.to.peer_id, "user#id"..msg.from.peer_id, ok_cb, false)
     end
   end
 
@@ -148,7 +148,7 @@ local function run(msg, matches)
   end
 
   if matches[1]:lower() == "banlist" then -- Ban list !
-    local chat_id = msg.to.id
+    local chat_id = msg.to.peer_id
     if matches[2] and is_admin(msg) then
       chat_id = matches[2] 
     end
@@ -163,25 +163,25 @@ local function run(msg, matches)
       end
     end
       local user_id = matches[2]
-      local chat_id = msg.to.id
+      local chat_id = msg.to.peer_id
       if string.match(matches[2], '^%d+$') then
         if tonumber(matches[2]) == tonumber(our_id) then 
          	return
         end
-        if not is_admin(msg) and is_momod2(matches[2], msg.to.id) then
+        if not is_admin(msg) and is_momod2(matches[2], msg.to.peer_id) then
           	return "you can't ban mods/owner/admins"
         end
-        if tonumber(matches[2]) == tonumber(msg.from.id) then
+        if tonumber(matches[2]) == tonumber(msg.from.peer_id) then
           	return "You can't ban your self !"
         end
         local name = user_print_name(msg.from)
-        savelog(msg.to.id, name.." ["..msg.from.id.."] baned user ".. matches[2])
+        savelog(msg.to.peer_id, name.." ["..msg.from.peer_id.."] baned user ".. matches[2])
         ban_user(user_id, chat_id)
       else
 		local cbres_extra = {
-		chat_id = msg.to.id,
+		chat_id = msg.to.peer_id,
 		get_cmd = 'ban',
-		from_id = msg.from.id
+		from_id = msg.from.peer_id
 		}
 		local username = matches[2]
 		local username = string.gsub(matches[2], '@', '')
@@ -195,20 +195,20 @@ local function run(msg, matches)
       local msgr = get_message(msg.reply_id,unban_by_reply, false)
     end
       local user_id = matches[2]
-      local chat_id = msg.to.id
+      local chat_id = msg.to.peer_id
       local targetuser = matches[2]
       if string.match(targetuser, '^%d+$') then
         	local user_id = targetuser
         	local hash =  'banned:'..chat_id
         	redis:srem(hash, user_id)
         	local name = user_print_name(msg.from)
-        	savelog(msg.to.id, name.." ["..msg.from.id.."] unbaned user ".. matches[2])
+        	savelog(msg.to.peer_id, name.." ["..msg.from.peer_id.."] unbaned user ".. matches[2])
         	return 'User '..user_id..' unbanned'
       else
 		local cbres_extra = {
-			chat_id = msg.to.id,
+			chat_id = msg.to.peer_id,
 			get_cmd = 'unban',
-			from_id = msg.from.id
+			from_id = msg.from.peer_id
 		}
 		local username = matches[2]
 		local username = string.gsub(matches[2], '@', '')
@@ -229,22 +229,22 @@ if matches[1]:lower() == 'kick' then
 		if tonumber(matches[2]) == tonumber(our_id) then 
 			return
 		end
-		if not is_admin(msg) and is_momod2(matches[2], msg.to.id) then
+		if not is_admin(msg) and is_momod2(matches[2], msg.to.peer_id) then
 			return "you can't kick mods/owner/admins"
 		end
-		if tonumber(matches[2]) == tonumber(msg.from.id) then
+		if tonumber(matches[2]) == tonumber(msg.from.peer_id) then
 			return "You can't kick your self !"
 		end
       		local user_id = matches[2]
-      		local chat_id = msg.to.id
+      		local chat_id = msg.to.peer_id
 		name = user_print_name(msg.from)
-		savelog(msg.to.id, name.." ["..msg.from.id.."] kicked user ".. matches[2])
+		savelog(msg.to.peer_id, name.." ["..msg.from.peer_id.."] kicked user ".. matches[2])
 		kick_user(user_id, chat_id)
 	else
 		local cbres_extra = {
-			chat_id = msg.to.id,
+			chat_id = msg.to.peer_id,
 			get_cmd = 'kick',
-			from_id = msg.from.id
+			from_id = msg.from.peer_id
 		}
 		local username = matches[2]
 		local username = string.gsub(matches[2], '@', '')
@@ -262,7 +262,7 @@ end
       return get_message(msg.reply_id,banall_by_reply, false)
     end
     local user_id = matches[2]
-    local chat_id = msg.to.id
+    local chat_id = msg.to.peer_id
       local targetuser = matches[2]
       if string.match(targetuser, '^%d+$') then
         if tonumber(matches[2]) == tonumber(our_id) then
@@ -272,9 +272,9 @@ end
        		return 'User ['..user_id..' ] globally banned'
       else
 	local cbres_extra = {
-		chat_id = msg.to.id,
+		chat_id = msg.to.peer_id,
 		get_cmd = 'banall',
-		from_id = msg.from.id
+		from_id = msg.from.peer_id
 	}
 		local username = matches[2]
 		local username = string.gsub(matches[2], '@', '')
@@ -283,7 +283,7 @@ end
   end
   if matches[1]:lower() == 'unbanall' then -- Global unban
     local user_id = matches[2]
-    local chat_id = msg.to.id
+    local chat_id = msg.to.peer_id
       if string.match(matches[2], '^%d+$') then
         if tonumber(matches[2]) == tonumber(our_id) then 
           	return false 
@@ -292,9 +292,9 @@ end
         	return 'User ['..user_id..' ] removed from global ban list'
       else
 	local cbres_extra = {
-		chat_id = msg.to.id,
+		chat_id = msg.to.peer_id,
 		get_cmd = 'unbanall',
-		from_id = msg.from.id
+		from_id = msg.from.peer_id
 	}
 		local username = matches[2]
 		local username = string.gsub(matches[2], '@', '')

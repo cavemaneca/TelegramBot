@@ -23,29 +23,29 @@ end
 
 local function killchat(cb_extra, success, result)
   local receiver = cb_extra.receiver
-  local chat_id = "chat#id"..result.id
+  local chat_id = "chat#id"..result.peer_id
   local chatname = result.print_name
   for k,v in pairs(result.members) do
-    kick_user_any(v.id, result.id)     
+    kick_user_any(v.peer_id, result.peer_id)     
   end
 end
 
 local function killrealm(cb_extra, success, result)
   local receiver = cb_extra.receiver
-  local chat_id = "chat#id"..result.id
+  local chat_id = "chat#id"..result.peer_id
   local chatname = result.print_name
   for k,v in pairs(result.members) do
-    kick_user_any(v.id, result.id)     
+    kick_user_any(v.peer_id, result.peer_id)     
   end
 end
 
 local function get_group_type(msg)
   local data = load_data(_config.moderation.data)
-  if data[tostring(msg.to.id)] then
-    if not data[tostring(msg.to.id)]['group_type'] then
+  if data[tostring(msg.to.peer_id)] then
+    if not data[tostring(msg.to.peer_id)]['group_type'] then
      return 'No group type available.'
     end
-     local group_type = data[tostring(msg.to.id)]['group_type']
+     local group_type = data[tostring(msg.to.peer_id)]['group_type']
      return group_type
   else 
      return 'Chat type not found.'
@@ -54,7 +54,7 @@ end
 
 local function callbackres(extra, success, result)
 --vardump(result)
-  local user = result.id
+  local user = result.peer_id
   local name = string.gsub(result.print_name, "_", " ")
   local chat = 'chat#id'..extra.chatid
   send_large_msg(chat, user..'\n'..name)
@@ -210,17 +210,17 @@ end
 local function returnids(cb_extra, success, result)
  
         local receiver = cb_extra.receiver
-    local chat_id = "chat#id"..result.id
+    local chat_id = "chat#id"..result.peer_id
     local chatname = result.print_name
-    local text = 'Users in '..string.gsub(chatname,"_"," ")..' ('..result.id..'):'..'\n'..''
+    local text = 'Users in '..string.gsub(chatname,"_"," ")..' ('..result.peer_id..'):'..'\n'..''
     for k,v in pairs(result.members) do
     	if v.print_name then
         	local username = ""
-        	text = text .. "- " .. string.gsub(v.print_name,"_"," ") .. "  (" .. v.id .. ") \n"
+        	text = text .. "- " .. string.gsub(v.print_name,"_"," ") .. "  (" .. v.peer_id .. ") \n"
         end
     end
     send_large_msg(receiver, text)
-        local file = io.open("./groups/lists/"..result.id.."memberlist.txt", "w")
+        local file = io.open("./groups/lists/"..result.peer_id.."memberlist.txt", "w")
         file:write(text)
         file:flush()
         file:close()
@@ -228,20 +228,20 @@ end
  
 local function returnidsfile(cb_extra, success, result)
     local receiver = cb_extra.receiver
-    local chat_id = "chat#id"..result.id
+    local chat_id = "chat#id"..result.peer_id
     local chatname = result.print_name
-    local text = 'Users in '..string.gsub(chatname,"_"," ")..' ('..result.id..'):'..'\n'..''
+    local text = 'Users in '..string.gsub(chatname,"_"," ")..' ('..result.peer_id..'):'..'\n'..''
     for k,v in pairs(result.members) do
     	if v.print_name then
         	local username = ""
-        	text = text .. "- " .. string.gsub(v.print_name,"_"," ") .. "  (" .. v.id .. ") \n"
+        	text = text .. "- " .. string.gsub(v.print_name,"_"," ") .. "  (" .. v.peer_id .. ") \n"
         end
     end
-        local file = io.open("./groups/lists/"..result.id.."memberlist.txt", "w")
+        local file = io.open("./groups/lists/"..result.peer_id.."memberlist.txt", "w")
         file:write(text)
         file:flush()
         file:close()
-        send_document("chat#id"..result.id,"./groups/lists/"..result.id.."memberlist.txt", ok_cb, false)
+        send_document("chat#id"..result.peer_id,"./groups/lists/"..result.peer_id.."memberlist.txt", ok_cb, false)
 end
  
 local function admin_promote(msg, admin_id)
@@ -395,7 +395,7 @@ local function username_id(cb_extra, success, result)
       vusername = v.username
       if vusername == member then
         member_username = member
-        member_id = v.id
+        member_id = v.peer_id
         if mod_cmd == 'addadmin' then
             return admin_user_promote(receiver, member_username, member_id)
         elseif mod_cmd == 'removeadmin' then
@@ -410,11 +410,11 @@ local function set_log_group(msg)
   if not is_admin(msg) then
     return 
   end
-  local log_group = data[tostring(groups)][tostring(msg.to.id)]['log_group']
+  local log_group = data[tostring(groups)][tostring(msg.to.peer_id)]['log_group']
   if log_group == 'yes' then
     return 'Log group is already set'
   else
-    data[tostring(groups)][tostring(msg.to.id)]['log_group'] = 'yes'
+    data[tostring(groups)][tostring(msg.to.peer_id)]['log_group'] = 'yes'
     save_data(_config.moderation.data, data)
     return 'Log group has been set'
   end
@@ -424,11 +424,11 @@ local function unset_log_group(msg)
   if not is_admin(msg) then
     return 
   end
-  local log_group = data[tostring(groups)][tostring(msg.to.id)]['log_group']
+  local log_group = data[tostring(groups)][tostring(msg.to.peer_id)]['log_group']
   if log_group == 'no' then
     return 'Log group is already disabled'
   else
-    data[tostring(groups)][tostring(msg.to.id)]['log_group'] = 'no'
+    data[tostring(groups)][tostring(msg.to.peer_id)]['log_group'] = 'no'
     save_data(_config.moderation.data, data)
     return 'log group has been disabled'
   end
@@ -443,19 +443,19 @@ function run(msg, matches)
     --vardump(msg)
    	local name_log = user_print_name(msg.from)
        if matches[1] == 'log' and is_owner(msg) then
-		savelog(msg.to.id, "log file created by owner")
-		send_document("chat#id"..msg.to.id,"./groups/"..msg.to.id.."log.txt", ok_cb, false)
+		savelog(msg.to.peer_id, "log file created by owner")
+		send_document("chat#id"..msg.to.peer_id,"./groups/"..msg.to.peer_id.."log.txt", ok_cb, false)
         end
 
 	if matches[1] == 'who' and is_momod(msg) then
 		local name = user_print_name(msg.from)
-		savelog(msg.to.id, name.." ["..msg.from.id.."] requested member list ")
+		savelog(msg.to.peer_id, name.." ["..msg.from.peer_id.."] requested member list ")
 		local receiver = get_receiver(msg)
 		chat_info(receiver, returnidsfile, {receiver=receiver})
 	end
 	if matches[1] == 'wholist' and is_momod(msg) then
 		local name = user_print_name(msg.from)
-		savelog(msg.to.id, name.." ["..msg.from.id.."] requested member list in a file")
+		savelog(msg.to.peer_id, name.." ["..msg.from.peer_id.."] requested member list in a file")
 		local receiver = get_receiver(msg)
 		chat_info(receiver, returnids, {receiver=receiver})
 	end
@@ -527,12 +527,12 @@ function run(msg, matches)
 
                 if matches[1] == 'setname' and is_realm(msg) then
                     local new_name = string.gsub(matches[2], '_', ' ')
-                    data[tostring(msg.to.id)]['settings']['set_name'] = new_name
+                    data[tostring(msg.to.peer_id)]['settings']['set_name'] = new_name
                     save_data(_config.moderation.data, data)
-                    local group_name_set = data[tostring(msg.to.id)]['settings']['set_name']
-                    local to_rename = 'chat#id'..msg.to.id
+                    local group_name_set = data[tostring(msg.to.peer_id)]['settings']['set_name']
+                    local to_rename = 'chat#id'..msg.to.peer_id
                     rename_chat(to_rename, group_name_set, ok_cb, false)
-                    savelog(msg.to.id, "Realm { "..msg.to.print_name.." }  name changed to [ "..new_name.." ] by "..name_log.." ["..msg.from.id.."]")
+                    savelog(msg.to.peer_id, "Realm { "..msg.to.print_name.." }  name changed to [ "..new_name.." ] by "..name_log.." ["..msg.from.peer_id.."]")
                 end
 		if matches[1] == 'setgpname' and is_admin(msg) then
 		    local new_name = string.gsub(matches[3], '_', ' ')
@@ -541,22 +541,22 @@ function run(msg, matches)
 		    local group_name_set = data[tostring(matches[2])]['settings']['set_name']
 		    local to_rename = 'chat#id'..matches[2]
 		    rename_chat(to_rename, group_name_set, ok_cb, false)
-                    savelog(msg.to.id, "Group { "..msg.to.print_name.." }  name changed to [ "..new_name.." ] by "..name_log.." ["..msg.from.id.."]")
+                    savelog(msg.to.peer_id, "Group { "..msg.to.print_name.." }  name changed to [ "..new_name.." ] by "..name_log.." ["..msg.from.peer_id.."]")
 		end
 
 	    end 
         end
     	if matches[1] == 'help' and is_realm(msg) then
-      		savelog(msg.to.id, name_log.." ["..msg.from.id.."] Used /help")
+      		savelog(msg.to.peer_id, name_log.." ["..msg.from.peer_id.."] Used /help")
      		return help()
     	end
               if matches[1] == 'set' then
                 if matches[2] == 'loggroup' then
-                   savelog(msg.to.id, name_log.." ["..msg.from.id.."] set as log group")
+                   savelog(msg.to.peer_id, name_log.." ["..msg.from.peer_id.."] set as log group")
                   return set_log_group(msg)
                 end
               end
-                if matches[1] == 'kill' and matches[2] == 'chat' then
+                if matches[1] == 'kill' and matches[2] == 'chat' or matches[2] == 'channel' then
                   if not is_admin(msg) then
                      return nil
                   end
@@ -586,8 +586,8 @@ function run(msg, matches)
 		    if not msg.service then
 		        return "Are you trying to troll me?"
 		    end
-		    local user = 'user#id'..msg.action.user.id
-		    local chat = 'chat#id'..msg.to.id
+		    local user = 'user#id'..msg.action.user.peer_id
+		    local chat = 'chat#id'..msg.to.peer_id
 		    if not is_admin(msg) then
 				chat_del_user(chat, user, ok_cb, true)
 			end
@@ -622,34 +622,34 @@ function run(msg, matches)
 			return admin_list(msg)
 		end
 		if matches[1] == 'list' and matches[2] == 'groups' then
-                  if msg.to.type == 'chat' then
+                  if msg.to.peer_type == 'chat' or msg.to.peer_type == 'channel' then
 			groups_list(msg)
-		        send_document("chat#id"..msg.to.id, "./groups/lists/groups.txt", ok_cb, false)	
+		        send_document("chat#id"..msg.to.peer_id, "./groups/lists/groups.txt", ok_cb, false)	
 			return "Group list created" --group_list(msg)
-                   elseif msg.to.type == 'user' then 
+                   elseif msg.to.peer_type == 'user' then 
                         groups_list(msg)
-		        send_document("user#id"..msg.from.id, "./groups/lists/groups.txt", ok_cb, false)	
+		        send_document("user#id"..msg.from.peer_id, "./groups/lists/groups.txt", ok_cb, false)	
 			return "Group list created" --group_list(msg)
                   end
 		end
 		if matches[1] == 'list' and matches[2] == 'realms' then
-                  if msg.to.type == 'chat' then
+                  if msg.to.peer_type == 'chat' or msg.to.peer_type == 'channel' then
 			realms_list(msg)
-		        send_document("chat#id"..msg.to.id, "./groups/lists/realms.txt", ok_cb, false)	
+		        send_document("chat#id"..msg.to.peer_id, "./groups/lists/realms.txt", ok_cb, false)	
 			return "Realms list created" --realms_list(msg)
-                   elseif msg.to.type == 'user' then 
+                   elseif msg.to.peer_type == 'user' then 
                         realms_list(msg)
-		        send_document("user#id"..msg.from.id, "./groups/lists/realms.txt", ok_cb, false)	
+		        send_document("user#id"..msg.from.peer_id, "./groups/lists/realms.txt", ok_cb, false)	
 			return "Realms list created" --realms_list(msg)
                   end
 		end
    		 if matches[1] == 'res' and is_momod(msg) then 
       			local cbres_extra = {
-        			chatid = msg.to.id
+        			chatid = msg.to.peer_id
      			}
       			local username = matches[2]
       			local username = username:gsub("@","")
-      			savelog(msg.to.id, name_log.." ["..msg.from.id.."] Used /res "..username)
+      			savelog(msg.to.peer_id, name_log.." ["..msg.from.peer_id.."] Used /res "..username)
       			return res_user(username,  callbackres, cbres_extra)
     end
 end

@@ -1,3 +1,4 @@
+
 local function set_bot_photo(msg, success, result)
   local receiver = get_receiver(msg)
   if success then
@@ -9,7 +10,7 @@ local function set_bot_photo(msg, success, result)
     send_large_msg(receiver, 'Photo changed!', ok_cb, false)
     redis:del("bot:photo")
   else
-    print('Error downloading: '..msg.id)
+    print('Error downloading: '..msg.peer_id)
     send_large_msg(receiver, 'Failed, please try again!', ok_cb, false)
   end
 end
@@ -21,8 +22,8 @@ end
 local function get_contact_list_callback (cb_extra, success, result)
   local text = " "
   for k,v in pairs(result) do
-    if v.print_name and v.id and v.phone then
-      text = text..string.gsub(v.print_name ,  "_" , " ").." ["..v.id.."] = "..v.phone.."\n"
+    if v.print_name and v.peer_id and v.phone then
+      text = text..string.gsub(v.print_name ,  "_" , " ").." ["..v.peer_id.."] = "..v.phone.."\n"
     end
   end
   local file = io.open("contact_list.txt", "w")
@@ -48,21 +49,21 @@ local function user_info_callback(cb_extra, success, result)
   text = text:gsub("[{}]", "")
   text = text:gsub('"', "")
   text = text:gsub(",","")
-  if cb_extra.msg.to.type == "chat" then
-    send_large_msg("chat#id"..cb_extra.msg.to.id, text)
+  if cb_extra.msg.to.peer_type == "chat" then
+    send_large_msg("chat#id"..cb_extra.msg.to.peer_id, text)
   else
-    send_large_msg("user#id"..cb_extra.msg.to.id, text)
+    send_large_msg("user#id"..cb_extra.msg.to.peer_id, text)
   end
 end
 local function get_dialog_list_callback(cb_extra, success, result)
   local text = ""
   for k,v in pairs(result) do
     if v.peer then
-      if v.peer.type == "chat" then
-        text = text.."group{"..v.peer.title.."}["..v.peer.id.."]("..v.peer.members_num..")"
+      if v.peer.peer_type == "chat" then
+        text = text.."group{"..v.peer.title.."}["..v.peer.peer_id.."]("..v.peer.members_num..")"
       else
-        if v.peer.print_name and v.peer.id then
-          text = text.."user{"..v.peer.print_name.."}["..v.peer.id.."]"
+        if v.peer.print_name and v.peer.peer_id then
+          text = text.."user{"..v.peer.print_name.."}["..v.peer.peer_id.."]"
         end
         if v.peer.username then
           text = text.."("..v.peer.username..")"
@@ -73,7 +74,7 @@ local function get_dialog_list_callback(cb_extra, success, result)
       end
     end
     if v.message then
-      text = text..'\nlast msg >\nmsg id = '..v.message.id
+      text = text..'\nlast msg >\nmsg id = '..v.message.peer_id
       if v.message.text then
         text = text .. "\n text = "..v.message.text
       end
@@ -82,7 +83,7 @@ local function get_dialog_list_callback(cb_extra, success, result)
       end
       if v.message.from then
         if v.message.from.print_name then
-          text = text.."\n From > \n"..string.gsub(v.message.from.print_name, "_"," ").."["..v.message.from.id.."]"
+          text = text.."\n From > \n"..string.gsub(v.message.from.print_name, "_"," ").."["..v.message.from.peer_id.."]"
         end
         if v.message.from.username then
           text = text.."( "..v.message.from.username.." )"
@@ -108,14 +109,14 @@ end
 local function run(msg,matches)
     local data = load_data(_config.moderation.data)
     local receiver = get_receiver(msg)
-    local group = msg.to.id
+    local group = msg.to.peer_id
     if not is_admin(msg) then
     	return
     end
     if msg.media then
-      	if msg.media.type == 'photo' and redis:get("bot:photo") then
+      	if msg.media.peer_type == 'photo' and redis:get("bot:photo") then
       		if redis:get("bot:photo") == 'waiting' then
-        		load_photo(msg.id, set_bot_photo, msg)
+        		load_photo(msg.peer_id, set_bot_photo, msg)
       		end
       	end
     end
@@ -154,7 +155,7 @@ local function run(msg,matches)
     	import_chat_link(hash,ok_cb,false)
     end
     if matches[1] == "contactlist" then
-      get_contact_list(get_contact_list_callback, {target = msg.from.id})
+      get_contact_list(get_contact_list_callback, {target = msg.from.peer_id})
       return "I've sent contact list with both json and text format to your private"
     end
     if matches[1] == "addcontact" and matches[2] then    add_contact(matches[2],matches[3],matches[4],ok_cb,false)
@@ -165,7 +166,7 @@ local function run(msg,matches)
       return "User "..matches[2].." removed from contact list"
     end
     if matches[1] == "dialoglist" then
-      get_dialog_list(get_dialog_list_callback, {target = msg.from.id})
+      get_dialog_list(get_dialog_list_callback, {target = msg.from.peer_id})
       return "I've sent dialog list with both json and text format to your private"
     end
     if matches[1] == "whois" then

@@ -1,6 +1,6 @@
 local function get_variables_hash(msg)
-  if msg.to.type == 'chat' then
-    return 'chat:'..msg.to.id..':variables'
+  if msg.to.peer_type == 'chat' then
+    return 'chat:'..msg.to.peer_id..':variables'
   end
 end 
 
@@ -17,12 +17,12 @@ local function get_value(msg, var_name)
 end
 
 local function run(msg, matches)
-  if not is_momod(msg) then -- only for mods,owner and admins
-    return 
-  end
+ -- if not is_momod(msg) then -- only for mods,owner and admins
+  --  return 
+ -- end
   if matches[2] then
     local name = user_print_name(msg.from)
-    savelog(msg.to.id, name.." ["..msg.from.id.."] used /get ".. matches[2])-- save to logs
+    savelog(msg.to.peer_id, name.." ["..msg.from.peer_id.."] used /get ".. matches[2])-- save to logs
     return get_value(msg, matches[2])
   else
     return

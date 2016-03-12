@@ -1,0 +1,126 @@
+[ Sat Feb 27 02:07:54 2016 ]=>  Bob_The_Banana [151462131] tried to change name but failed  
+ 
+[ Sat Feb 27 02:07:54 2016 ]=>  Miku_Bot [0] tried to change name but failed  
+ 
+[ Sat Feb 27 02:09:20 2016 ]=>  Frosty_Senpai [146252205] unlocked name 
+ 
+[ Sat Feb 27 02:09:40 2016 ]=>  Frosty_Senpai [146252205] unlocked flood 
+ 
+[ Mon Mar  7 12:02:19 2016 ]=>  Frosty_Senpai [146252205] requested group settings 
+ 
+[ Tue Mar  8 15:55:06 2016 ]=>  Group { for_NEET }  name changed to [ Adminchat for Oppai Avenue ] by Frosty_Senpai [146252205]
+ 
+[ Tue Mar  8 16:53:57 2016 ]=>  Frosty_Senpai [146252205] saved [ID] as > 113476572
+ 
+[ Tue Mar  8 16:58:32 2016 ]=>  Frosty_Senpai [146252205] requested group rules
+ 
+[ Wed Mar  9 13:29:47 2016 ]=>  Bob_The_Banana [151462131] used /get ID
+ 
+[ Wed Mar  9 13:32:27 2016 ]=>  Frosty_Senpai [146252205] saved [cunt] as > don't be a cunt you cunt
+ 
+[ Wed Mar  9 13:32:41 2016 ]=>  Frosty_Senpai [146252205] used /get cunt
+ 
+[ Wed Mar  9 13:32:50 2016 ]=>  Bob_The_Banana [151462131] used /get Staff
+ 
+[ Wed Mar  9 13:32:58 2016 ]=>  Frosty_Senpai [146252205] used /get Staff
+ 
+[ Wed Mar  9 13:38:26 2016 ]=>  Nord [133710046] used /get cunt
+ 
+[ Wed Mar  9 13:51:01 2016 ]=>  Frosty_Senpai [146252205] set [146252205] as owner
+ 
+[ Wed Mar  9 13:51:10 2016 ]=>  Frosty_Senpai [146252205] used /owner
+ 
+[ Wed Mar  9 15:49:20 2016 ]=>  Nord [133710046] saved [pantsu] as > http://i.imgur.com/FZUJSui.jpg
+ 
+[ Wed Mar  9 15:49:27 2016 ]=>  Nord [133710046] used /get pantsu
+ 
+[ Wed Mar  9 15:51:54 2016 ]=>  Nord [133710046] saved [pussy] as > http://i.imgur.com/7iEv5Sd.jpg
+ 
+[ Wed Mar  9 15:51:58 2016 ]=>  Nord [133710046] used /get pussy
+ 
+[ Wed Mar  9 15:54:16 2016 ]=>  Nord [133710046] saved [pantsu] as > http://i.imgur.com/jpXNNEo.png
+ 
+[ Wed Mar  9 20:00:23 2016 ]=>  Nord [133710046] used /get pussy
+ 
+[ Wed Mar  9 20:11:05 2016 ]=>  Nord [133710046] saved [laid] as > 😒
+ 
+[ Wed Mar  9 20:11:11 2016 ]=>  Nord [133710046] used /get laid
+ 
+[ Wed Mar  9 20:11:31 2016 ]=>  NEET_Soldier [144584416] used /get laid please
+ 
+[ Thu Mar 10 04:33:14 2016 ]=>  log file created by owner
+ 
+[ Thu Mar 10 04:33:25 2016 ]=>  Nord [133710046] used /get pantsu
+ 
+[ Thu Mar 10 04:34:40 2016 ]=>  Nord [133710046] saved [rekt] as > Hah you suck
+ 
+[ Thu Mar 10 04:34:47 2016 ]=>  Nord [133710046] used /get rekt
+ 
+[ Thu Mar 10 04:39:03 2016 ]=>  Nord [133710046] requested member list 
+ 
+[ Thu Mar 10 04:39:16 2016 ]=>  Nord [133710046] requested group modlist
+ 
+[ Thu Mar 10 04:40:19 2016 ]=>  Nord [133710046] Used /help
+ 
+[ Fri Mar 11 11:05:42 2016 ]=>  Frosty_Senpai [146252205] requested group stats 
+ 
+[ Fri Mar 11 11:06:11 2016 ]=>  Frosty_Senpai [146252205] requested group description
+ 
+[ Fri Mar 11 11:06:15 2016 ]=>  Frosty_Senpai [146252205] requested group rules
+ 
+[ Fri Mar 11 11:07:06 2016 ]=>  Nord [133710046] has changed group rules to [113476572 CONTRIBUTE WHEN YOU JOIN. LURKERS GET KICKED
+1. Don't be a dick
+2. No real porn or 3D of kids. 
+3. Keep the art high quality (Japanese & Western both allowed)
+4. NO MEMES
+5. No scat, guro, vore
+6. Stickers can be posted in moderation if anime related
+7. No yaoi (futa is allowed)
+8. No unwanted advances towards other members]
+ 
+[ Fri Mar 11 11:07:42 2016 ]=>  Frosty_Senpai [146252205] requested group rules
+ 
+[ Sat Mar 12 13:05:02 2016 ]=>  Frosty_Senpai [146252205] requested member list 
+ 
+[ Sat Mar 12 14:19:03 2016 ]=>  Frosty_Senpai [146252205] used /id 
+ 
+[ Sat Mar 12 19:43:58 2016 ]=>  Frosty_Senpai [146252205] used /id 
+ 
+[ Sat Mar 12 19:53:19 2016 ]=>  ThatGuy [141385377] requested group rules
+ 
+[ Sat Mar 12 19:57:38 2016 ]=>  Frosty_Senpai [146252205] requested group rules
+ 
+[ Sat Mar 12 20:00:27 2016 ]=>  Frosty_Senpai [146252205] saved [works] as > too
+ 
+[ Sat Mar 12 20:13:20 2016 ]=>  ThatGuy [141385377] requested group rules
+ 
+[ Sat Mar 12 20:17:23 2016 ]=>  ThatGuy [141385377] requested group description
+ 
+[ Sat Mar 12 20:18:27 2016 ]=>  ThatGuy [141385377] has changed group rules to [test]
+ 
+[ Sat Mar 12 20:18:34 2016 ]=>  ThatGuy [141385377] requested group rules
+ 
+[ Sat Mar 12 20:18:46 2016 ]=>  ThatGuy [141385377] locked name 
+ 
+[ Sat Mar 12 20:18:48 2016 ]=>  Frosty_Senpai [146252205] has changed group description to [test]
+ 
+[ Sat Mar 12 20:18:59 2016 ]=>  Frosty_Senpai [146252205] requested group description
+ 
+[ Sat Mar 12 20:19:06 2016 ]=>  Frosty_Senpai [146252205] saved [test] as > oi
+ 
+[ Sat Mar 12 20:20:03 2016 ]=>  ThatGuy [141385377] has changed group rules to [1015802649 test]
+ 
+[ Sat Mar 12 20:20:54 2016 ]=>  ThatGuy [141385377] has changed group rules to [test]
+ 
+[ Sat Mar 12 20:22:24 2016 ]=>  ThatGuy [141385377] requested group description
+ 
+[ Sat Mar 12 20:23:37 2016 ]=>  ThatGuy [141385377] saved [test] as > 1
+ 
+[ Sat Mar 12 20:28:35 2016 ]=>  Frosty_Senpai [146252205] used /owner
+ 
+[ Sat Mar 12 20:29:39 2016 ]=>  ThatGuy [141385377] used /owner
+ 
+[ Sat Mar 12 21:19:13 2016 ]=>  ThatGuy [141385377] saved [test] as > test
+ 
+[ Sat Mar 12 21:19:15 2016 ]=>  ThatGuy [141385377] used /get test
+ 

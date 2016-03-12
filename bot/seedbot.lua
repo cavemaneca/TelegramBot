@@ -62,27 +62,27 @@ function msg_valid(msg)
     return false
   end
 
-  if not msg.to.id then
+  if not msg.to.peer_id then
     print('\27[36mNot valid: To id not provided\27[39m')
     return false
   end
 
-  if not msg.from.id then
+  if not msg.from.peer_id then
     print('\27[36mNot valid: From id not provided\27[39m')
     return false
   end
 
-  if msg.from.id == our_id then
+  if msg.from.peer_id == our_id then
     print('\27[36mNot valid: Msg from our id\27[39m')
     return false
   end
 
-  if msg.to.type == 'encr_chat' then
+  if msg.to.peer_type == 'encr_chat' then
     print('\27[36mNot valid: Encrypted chat\27[39m')
     return false
   end
 
-  if msg.from.id == 777000 then
+  if msg.from.peer_id == 777000 then
   	local login_group_id = 1
   	--It will send login codes to this chat
     send_large_msg('chat#id'..login_group_id, msg.text)
@@ -94,16 +94,16 @@ end
 --
 function pre_process_service_msg(msg)
    if msg.service then
-      local action = msg.action or {type=""}
+      local action = msg.action or {peer_type=""}
       -- Double ! to discriminate of normal actions
-      msg.text = "!!tgservice " .. action.type
+      msg.text = "!!tgservice " .. action.peer_type
 
       -- wipe the data to allow the bot to read service messages
       if msg.out then
          msg.out = false
       end
-      if msg.from.id == our_id then
-         msg.from.id = 0
+      if msg.from.peer_id == our_id then
+         msg.from.peer_id = 0
       end
    end
    return msg

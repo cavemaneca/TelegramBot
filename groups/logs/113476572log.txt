@@ -1,0 +1,316 @@
+[ Tue Mar  8 11:22:00 2016 ]=>  Bob_The_Banana [151462131] requested group settings 
+ 
+[ Tue Mar  8 11:22:24 2016 ]=>  Bob_The_Banana [151462131] set flood to [20]
+ 
+[ Tue Mar  8 11:26:09 2016 ]=>  Bob_The_Banana [151462131] used /id 
+ 
+[ Tue Mar  8 11:28:41 2016 ]=>  Bob_The_Banana [151462131] requested group rules
+ 
+[ Tue Mar  8 11:32:02 2016 ]=>  Miku_Bot [0] deleted user  user#id146114680
+ 
+[ Tue Mar  8 11:42:14 2016 ]=>  Bob_The_Banana [151462131] requested group modlist
+ 
+[ Tue Mar  8 11:45:11 2016 ]=>  Bob_The_Banana [151462131] requested group description
+ 
+[ Tue Mar  8 12:25:30 2016 ]=>  Frosty_Senpai [146252205] requested group description
+ 
+[ Tue Mar  8 12:40:35 2016 ]=>  Nord [133710046] tried to change name but failed  
+ 
+[ Tue Mar  8 12:40:46 2016 ]=>  Frosty_Senpai [146252205] unlocked name 
+ 
+[ Tue Mar  8 12:40:49 2016 ]=>  Group { Boobs }  name changed to [ cunt ] by Nord [133710046]
+ 
+[ Tue Mar  8 12:40:59 2016 ]=>  Group { cunt }  name changed to [ fuck you too nord ;^) ] by Frosty_Senpai [146252205]
+ 
+[ Tue Mar  8 12:41:20 2016 ]=>  Group { fuck_you_too_nord_;^) }  name changed to [ Chill yo tits ] by NEET_Soldier [144584416]
+ 
+[ Tue Mar  8 12:41:27 2016 ]=>  Nord [133710046] locked name 
+ 
+[ Tue Mar  8 12:42:03 2016 ]=>  Frosty_Senpai [146252205] locked name 
+ 
+[ Tue Mar  8 12:42:14 2016 ]=>  Nord [133710046] unlocked photo 
+ 
+[ Tue Mar  8 12:42:59 2016 ]=>  NEET_Soldier [144584416] unlocked name 
+ 
+[ Tue Mar  8 12:43:06 2016 ]=>  Group { Chill_yo_tits }  name changed to [ dammit miku ] by Nord [133710046]
+ 
+[ Tue Mar  8 12:43:36 2016 ]=>  Group { dammit_miku }  name changed to [ Fuq outta here Nord ] by NEET_Soldier [144584416]
+ 
+[ Tue Mar  8 12:44:00 2016 ]=>  Group { Fuq_outta_here_Nord }  name changed to [ NordxRebin OTP ] by NEET_Soldier [144584416]
+ 
+[ Tue Mar  8 12:44:22 2016 ]=>  NEET_Soldier [144584416] locked name 
+ 
+[ Tue Mar  8 12:45:36 2016 ]=>  Nord [133710046] unlocked name 
+ 
+[ Tue Mar  8 12:45:39 2016 ]=>  Group { NordxRebin_OTP }  name changed to [ no ] by Nord [133710046]
+ 
+[ Tue Mar  8 12:45:44 2016 ]=>  Nord [133710046] locked name 
+ 
+[ Tue Mar  8 12:46:53 2016 ]=>  Nord [133710046] unlocked name 
+ 
+[ Tue Mar  8 12:47:31 2016 ]=>  Group { no }  name changed to [ Oppai Avenue ] by Nord [133710046]
+ 
+[ Tue Mar  8 15:32:40 2016 ]=>  Frosty_Senpai [146252205] revoked group link 
+ 
+[ Tue Mar  8 15:32:53 2016 ]=>  Frosty_Senpai [146252205] locked arabic 
+ 
+[ Tue Mar  8 15:33:27 2016 ]=>  Bob_The_Banana [151462131] requested group rules
+ 
+[ Tue Mar  8 15:35:33 2016 ]=>  Frosty_Senpai [146252205] requested group link [https://telegram.me/joinchat/CPhLZwbDg9wbB-ogxgSoCw]
+ 
+[ Tue Mar  8 15:36:10 2016 ]=>  Frosty_Senpai [146252205] used /owner
+ 
+[ Tue Mar  8 16:16:45 2016 ]=>  Frosty_Senpai [146252205] requested group description
+ 
+[ Tue Mar  8 16:16:58 2016 ]=>  Nord [133710046] requested group rules
+ 
+[ Tue Mar  8 16:17:32 2016 ]=>  Rebin_Barwari [146114680] unlocked name 
+ 
+[ Tue Mar  8 16:19:15 2016 ]=>  Nord [133710046] requested group rules
+ 
+[ Tue Mar  8 16:36:11 2016 ]=>  Nord [133710046] requested group rules
+ 
+[ Tue Mar  8 16:48:14 2016 ]=>  Miku_Bot [0] deleted user  user#id141385377
+ 
+[ Tue Mar  8 16:58:59 2016 ]=>  Bob_The_Banana [151462131] requested group rules
+ 
+[ Tue Mar  8 17:00:13 2016 ]=>  Bob_The_Banana [151462131] requested group rules
+ 
+[ Tue Mar  8 17:57:04 2016 ]=>  Nord [133710046] requested group rules
+ 
+[ Tue Mar  8 18:35:45 2016 ]=>  Bob_The_Banana [151462131] used /owner
+ 
+[ Tue Mar  8 19:21:24 2016 ]=>  Frosty_Senpai [146252205] requested group rules
+ 
+[ Tue Mar  8 19:37:45 2016 ]=>  Axle_San [38214809] deleted user  user#id38214809
+ 
+[ Tue Mar  8 21:06:52 2016 ]=>  Nord [133710046] requested group rules
+ 
+[ Tue Mar  8 21:38:18 2016 ]=>  Josu [508587] deleted user  user#id508587
+ 
+[ Tue Mar  8 22:25:37 2016 ]=>  ravin_sed [190957397] deleted user  user#id190957397
+ 
+[ Wed Mar  9 00:02:57 2016 ]=>  Bob_The_Banana [151462131] requested group rules
+ 
+[ Wed Mar  9 00:20:35 2016 ]=>  NEET_Soldier [144584416] used /get rules
+ 
+[ Wed Mar  9 00:20:43 2016 ]=>  NEET_Soldier [144584416] used /get Rules
+ 
+[ Wed Mar  9 00:20:55 2016 ]=>  NEET_Soldier [144584416] requested group rules
+ 
+[ Wed Mar  9 01:04:08 2016 ]=>  Bob_The_Banana [151462131] requested group rules
+ 
+[ Wed Mar  9 02:44:12 2016 ]=>  Aref_Afravi [138084692] deleted user  user#id138084692
+ 
+[ Wed Mar  9 02:52:57 2016 ]=>  Shad [212123127] requested group rules
+ 
+[ Wed Mar  9 02:54:40 2016 ]=>  Shad [212123127] requested group rules
+ 
+[ Wed Mar  9 03:31:42 2016 ]=>  NEET_Soldier [144584416] used /get admin
+ 
+[ Wed Mar  9 06:27:56 2016 ]=>  Rebin_Barwari [146114680] unlocked name 
+ 
+[ Wed Mar  9 06:29:07 2016 ]=>  Miku_Bot [0] deleted user  user#id146114680
+ 
+[ Wed Mar  9 06:30:30 2016 ]=>  Miku_Bot [0] deleted user  user#id146114680
+ 
+[ Wed Mar  9 06:35:07 2016 ]=>  Nord [133710046] requested group rules
+ 
+[ Wed Mar  9 08:26:19 2016 ]=>  Velan [112546455] deleted user  user#id112546455
+ 
+[ Wed Mar  9 12:29:58 2016 ]=>  Nord [133710046] requested group rules
+ 
+[ Wed Mar  9 13:00:43 2016 ]=>  Nord [133710046] requested group rules
+ 
+[ Wed Mar  9 13:37:26 2016 ]=>  Alexey_Maximovich [62446039] deleted user  user#id62446039
+ 
+[ Wed Mar  9 14:09:32 2016 ]=>  Nord [133710046] requested group rules
+ 
+[ Wed Mar  9 14:15:24 2016 ]=>  Lucas [199994318] deleted user  user#id199994318
+ 
+[ Wed Mar  9 14:50:49 2016 ]=>  Frosty_Senpai [146252205] requested group rules
+ 
+[ Wed Mar  9 14:57:22 2016 ]=>  Nord [133710046] requested group rules
+ 
+[ Wed Mar  9 14:57:57 2016 ]=>  Metal_Head [151262343] deleted user  user#id151262343
+ 
+[ Wed Mar  9 15:28:27 2016 ]=>  Miku_Bot [0] deleted user  user#id19936315
+ 
+[ Wed Mar  9 15:41:19 2016 ]=>  Frosty_Senpai [146252205] requested group rules
+ 
+[ Wed Mar  9 16:19:08 2016 ]=>  Frosty_Senpai [146252205] requested group rules
+ 
+[ Wed Mar  9 16:20:00 2016 ]=>  E [102920751] deleted user  user#id102920751
+ 
+[ Wed Mar  9 17:01:34 2016 ]=>  Nord [133710046] requested group rules
+ 
+[ Wed Mar  9 18:15:36 2016 ]=>  Nord [133710046] requested group rules
+ 
+[ Wed Mar  9 18:36:29 2016 ]=>  Miku_Bot [0] deleted user  user#id51514222
+ 
+[ Wed Mar  9 20:45:43 2016 ]=>  No_name_Dragon [158490538] deleted user  user#id158490538
+ 
+[ Wed Mar  9 21:03:16 2016 ]=>  AshleyZT [119707972] deleted user  user#id119707972
+ 
+[ Wed Mar  9 21:31:55 2016 ]=>  You_love,_love,_love_When_you_know_I_can't_love_You_love,_love,_love_When_you_know_I_can't_love_you [153993410] deleted user  user#id153993410
+ 
+[ Wed Mar  9 22:04:45 2016 ]=>  Zeetzo [106229923] deleted user  user#id106653739
+ 
+[ Wed Mar  9 22:33:28 2016 ]=>  Salman_(ASA) [124586753] deleted user  user#id124586753
+ 
+[ Wed Mar  9 23:10:33 2016 ]=>  B_Mt [165928625] deleted user  user#id165928625
+ 
+[ Thu Mar 10 01:59:06 2016 ]=>  Frosty_Senpai [146252205] requested group rules
+ 
+[ Thu Mar 10 02:05:39 2016 ]=>  The_Witcher [150878680] deleted user  user#id150878680
+ 
+[ Thu Mar 10 02:56:21 2016 ]=>  Frosty_Senpai [146252205] requested group rules
+ 
+[ Thu Mar 10 02:56:59 2016 ]=>  DaNuRi [131487793] deleted user  user#id131487793
+ 
+[ Thu Mar 10 03:20:40 2016 ]=>  NEET_Soldier [144584416] requested group rules
+ 
+[ Thu Mar 10 03:32:46 2016 ]=>  NEET_Soldier [144584416] requested group rules
+ 
+[ Thu Mar 10 03:36:03 2016 ]=>  Owl [179835225] deleted user  user#id179835225
+ 
+[ Thu Mar 10 03:48:48 2016 ]=>  NEET_Soldier [144584416] requested group rules
+ 
+[ Thu Mar 10 03:50:51 2016 ]=>  Ali_Alqattan [83766919] deleted user  user#id83766919
+ 
+[ Thu Mar 10 03:57:07 2016 ]=>  Miku_Bot [0] deleted user  user#id141385377
+ 
+[ Thu Mar 10 03:57:41 2016 ]=>  Miku_Bot [0] deleted user  user#id170220452
+ 
+[ Thu Mar 10 03:58:54 2016 ]=>  Mirgi_Man [170220452] is banned and kicked ! 
+ 
+[ Thu Mar 10 03:58:54 2016 ]=>  Miku_Bot [0] deleted user  user#id170220452
+ 
+[ Thu Mar 10 04:21:37 2016 ]=>  Nord [133710046] requested group rules
+ 
+[ Thu Mar 10 04:22:09 2016 ]=>  Wibbah [102512434] deleted user  user#id102512434
+ 
+[ Thu Mar 10 04:30:52 2016 ]=>  Nord [133710046] Used /help
+ 
+[ Thu Mar 10 04:31:55 2016 ]=>  log file created by owner
+ 
+[ Thu Mar 10 04:37:07 2016 ]=>  Nord [133710046] promoted @@Natsuhito
+ 
+[ Thu Mar 10 04:37:23 2016 ]=>  ThatGuy [141385377] requested group modlist
+ 
+[ Thu Mar 10 05:23:30 2016 ]=>  Nord [133710046] requested group rules
+ 
+[ Thu Mar 10 06:45:56 2016 ]=>  Nord [133710046] used /get rekt
+ 
+[ Thu Mar 10 06:53:49 2016 ]=>  Nord [133710046] requested group rules
+ 
+[ Thu Mar 10 08:44:55 2016 ]=>  Nord [133710046] requested group rules
+ 
+[ Thu Mar 10 11:09:14 2016 ]=>  ThatGuy [141385377] requested group rules
+ 
+[ Thu Mar 10 11:18:22 2016 ]=>  Nord [133710046] requested group link [https://telegram.me/joinchat/CPhLZwbDg9wbB-ogxgSoCw]
+ 
+[ Thu Mar 10 11:18:41 2016 ]=>  Moothal_Aadmi [93638539] requested group rules
+ 
+[ Thu Mar 10 11:19:25 2016 ]=>  Sant_Obama [146139395] deleted user  user#id146139395
+ 
+[ Thu Mar 10 11:46:39 2016 ]=>  Nord [133710046] requested group rules
+ 
+[ Thu Mar 10 11:54:38 2016 ]=>  Nord [133710046] requested group rules
+ 
+[ Thu Mar 10 11:55:32 2016 ]=>  Nord [133710046] requested group rules
+ 
+[ Thu Mar 10 12:24:48 2016 ]=>  P_S [195567649] deleted user  user#id195567649
+ 
+[ Thu Mar 10 14:04:17 2016 ]=>  William_HK [194335428] deleted user  user#id194335428
+ 
+[ Thu Mar 10 16:08:29 2016 ]=>  Frosty_Senpai [146252205] requested group rules
+ 
+[ Thu Mar 10 16:08:49 2016 ]=>  Bazinga [126277318] deleted user  user#id126277318
+ 
+[ Thu Mar 10 17:34:06 2016 ]=>  Frosty_Senpai [146252205] requested group rules
+ 
+[ Thu Mar 10 19:10:30 2016 ]=>  Nord [133710046] requested group rules
+ 
+[ Thu Mar 10 19:15:12 2016 ]=>  FatinAkmal_NFAJ [120236492] deleted user  user#id120236492
+ 
+[ Thu Mar 10 21:21:47 2016 ]=>  Bob_The_Banana [151462131] requested group rules
+ 
+[ Thu Mar 10 22:42:05 2016 ]=>  Lubieerror_L._Lawliet [67794245] deleted user  user#id67794245
+ 
+[ Fri Mar 11 03:24:10 2016 ]=>  Ｈｉｋｋｉ_☆彡 [155906577] deleted user  user#id155906577
+ 
+[ Fri Mar 11 03:30:04 2016 ]=>  Jigoku_Taka [170962359] deleted user  user#id170962359
+ 
+[ Fri Mar 11 03:31:03 2016 ]=>  TheAnig [71494120] deleted user  user#id71494120
+ 
+[ Fri Mar 11 06:35:02 2016 ]=>  Bob_The_Banana [151462131] requested group rules
+ 
+[ Fri Mar 11 09:25:30 2016 ]=>  NEET_Soldier [144584416] requested group rules
+ 
+[ Fri Mar 11 09:57:43 2016 ]=>  Nord [133710046] requested group rules
+ 
+[ Fri Mar 11 11:05:52 2016 ]=>  Nord [133710046] used /id 
+ 
+[ Fri Mar 11 13:46:22 2016 ]=>  Nord [133710046] requested group rules
+ 
+[ Fri Mar 11 15:38:35 2016 ]=>  Mrshmllo [161968419] spammed and kicked ! 
+ 
+[ Fri Mar 11 15:38:35 2016 ]=>  Miku_Bot [0] deleted user  user#id161968419
+ 
+[ Fri Mar 11 15:39:42 2016 ]=>  Akbar_Tukhtamurotov [112818964] deleted user  user#id112818964
+ 
+[ Fri Mar 11 15:59:07 2016 ]=>  Nord [133710046] requested group rules
+ 
+[ Fri Mar 11 17:36:40 2016 ]=>  NEET_Soldier [144584416] requested group rules
+ 
+[ Fri Mar 11 18:03:46 2016 ]=>  Clint_Barton [129545546] deleted user  user#id129545546
+ 
+[ Fri Mar 11 18:07:31 2016 ]=>  A_N [69867122] deleted user  user#id69867122
+ 
+[ Fri Mar 11 19:27:05 2016 ]=>  Waheed_Kamran [178829021] deleted user  user#id178829021
+ 
+[ Fri Mar 11 20:09:17 2016 ]=>  Nord [133710046] requested group rules
+ 
+[ Fri Mar 11 20:15:30 2016 ]=>  Pablo [40483606] deleted user  user#id40483606
+ 
+[ Fri Mar 11 20:24:51 2016 ]=>  Mrshmllo [161968419] requested group rules
+ 
+[ Fri Mar 11 23:51:49 2016 ]=>  NEET_Soldier [144584416] requested group rules
+ 
+[ Sat Mar 12 00:41:59 2016 ]=>  Frosty_Senpai [146252205] requested group rules
+ 
+[ Sat Mar 12 01:00:27 2016 ]=>  J. [2935989] deleted user  user#id2935989
+ 
+[ Sat Mar 12 02:14:17 2016 ]=>  NEET_Soldier [144584416] requested group rules
+ 
+[ Sat Mar 12 02:14:37 2016 ]=>  Iqbola [48067384] deleted user  user#id48067384
+ 
+[ Sat Mar 12 03:11:34 2016 ]=>  han [163264779] deleted user  user#id163264779
+ 
+[ Sat Mar 12 03:14:24 2016 ]=>  Arun [192277115] deleted user  user#id192277115
+ 
+[ Sat Mar 12 03:45:10 2016 ]=>  daus_esa [1144776] deleted user  user#id1144776
+ 
+[ Sat Mar 12 04:11:57 2016 ]=>  Abhishek_Taori [65358817] deleted user  user#id65358817
+ 
+[ Sat Mar 12 05:09:30 2016 ]=>  NEET_Soldier [144584416] requested group rules
+ 
+[ Sat Mar 12 05:35:07 2016 ]=>  ThatGuy [141385377] requested group rules
+ 
+[ Sat Mar 12 05:36:31 2016 ]=>  Rowlings [182075706] deleted user  user#id182075706
+ 
+[ Sat Mar 12 06:59:12 2016 ]=>  Nord [133710046] requested group rules
+ 
+[ Sat Mar 12 07:10:47 2016 ]=>  First_Last [192817004] deleted user  user#id192817004
+ 
+[ Sat Mar 12 07:29:45 2016 ]=>  Nord [133710046] requested group rules
+ 
+[ Sat Mar 12 07:33:27 2016 ]=>  H_H [133537122] deleted user  user#id133537122
+ 
+[ Sat Mar 12 08:15:30 2016 ]=>  H_S [62186580] deleted user  user#id62186580
+ 
+[ Sat Mar 12 10:21:26 2016 ]=>  ._. [197544222] deleted user  user#id197544222
+ 
+[ Sat Mar 12 12:52:48 2016 ]=>  Miku_Bot [0] deleted user  user#id93638539
+ 
